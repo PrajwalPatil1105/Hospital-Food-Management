@@ -70,7 +70,7 @@ function ManagerDashboard() {
   async function Delete(id) {
     if (confirm("Want to Delete Patient Data??")) {
       try {
-        const response = await fetch(`${BASE_URL}/deletepatient/${id}`, {
+        const response = await fetch(`${BASE_URL}/HFM/deletepatient/${id}`, {
           method: "DELETE",
           headers: { "Content-type": "application/json" },
         });
