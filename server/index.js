@@ -8,7 +8,14 @@ const router = require("../server/Route/Router.js");
 app.use(express.json());
 dotenv.config();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://hospital-food-management-coral.vercel.app",
+      "http://localhost:5173",
+    ],
+  })
+);
 
 mongoose
   .connect(process.env.MONGODB_URI)
