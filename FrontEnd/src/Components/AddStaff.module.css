@@ -1,0 +1,106 @@
+.formContainer {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgb(206, 205, 205);
+  border-radius: 8px;
+  margin-top: 8em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.formContainer h2 {
+  font-family: Roboto;
+  font-size: larger;
+  color: #494747;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.formSection {
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.formSection h3 {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formGroup label {
+  color: #666;
+  font-size: 14px;
+  font-family: Poppins;
+  font-size: medium;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.formGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.mealSection {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.mealSection h4 {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    margin: 20px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

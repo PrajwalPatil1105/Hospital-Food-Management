@@ -1,0 +1,336 @@
+.dashboard {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.navbar {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar h1 {
+  color: #333;
+  font-family: "Poppins";
+  font-size: larger;
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  display: flex;
+  font-family: "Poppins";
+  align-items: center;
+}
+
+.tab.active {
+  color: #4caf50;
+  border-bottom-color: #4caf50;
+}
+
+.content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.taskGrid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.taskCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.taskHeader {
+  margin-bottom: 1rem;
+}
+
+.taskHeader h3 {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.statusDropdown {
+  border: 1px solid rgb(93, 91, 91);
+  padding: 0.2em;
+  border-radius: 5px;
+}
+
+.preparing {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+
+.ready {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.delivered {
+  background-color: #e8eaf6;
+  color: #3f51b5;
+}
+
+.taskDetails {
+  color: #666;
+}
+
+.taskDetails p {
+  margin-bottom: 0.5rem;
+}
+
+.dietChart {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.dietChart h4 {
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.dietChart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.dietChart li {
+  padding: 0.25rem 0;
+  color: #666;
+}
+
+.instructions {
+  font-style: italic;
+  color: #666;
+  background-color: #f8f8f8;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.morningMeal {
+  border-left: 4px solid #ff9800;
+  padding-left: 1rem;
+}
+
+.eveningMeal {
+  border-left: 4px solid #2196f3;
+  padding-left: 1rem;
+}
+
+.nightMeal {
+  border-left: 4px solid #4caf50;
+  padding-left: 1rem;
+}
+
+.mealTimeTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.logout {
+  background-color: #2196f3;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: small;
+  cursor: pointer;
+  color: white;
+}
+.logout:hover {
+  background-color: white;
+  border: 2px solid #2196f3;
+  padding: 0.2rem 0.5rem;
+  color: black;
+}
+
+.actionButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+  flex: 1;
+}
+
+.updateButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.updateButton:hover {
+  background-color: #45a049;
+}
+
+.assignButton {
+  background-color: #2196f3;
+  color: white;
+}
+
+.assignButton:hover {
+  background-color: #1976d2;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modalHeader {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.modalContent {
+  padding: 1rem;
+}
+
+.staffSelectionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.staffSelectionCard {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.staffSelectionCard:hover:not(.disabled) {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  transform: translateY(-2px);
+}
+
+.staffSelectionCard.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+.staffSelectionCard h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.staffSelectionCard p {
+  margin: 0.25rem 0;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.emptyContainer {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.emptyContainer h2 {
+  color: #1e40af;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.emptyContainer p {
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .taskGrid {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .taskCard {
+    flex: 0 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

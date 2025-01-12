@@ -1,0 +1,211 @@
+.dashboard {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.navbar {
+  background: rgb(255, 255, 255);
+  padding: 1rem 0rem;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+}
+
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.staffInfo {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.logout {
+  background-color: #2196f3;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: small;
+  cursor: pointer;
+  margin-left: 2em;
+  color: white;
+}
+.logout:hover {
+  background-color: white;
+  border: 2px solid #2196f3;
+  padding: 0.2rem 0.5rem;
+  color: black;
+}
+
+.staffName {
+  font-weight: 500;
+}
+
+.content {
+  max-width: 40rem;
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.emptyContainer {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.emptyContainer h2 {
+  color: #1e40af;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.emptyContainer p {
+  color: #64748b;
+}
+
+.deliveryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.deliveryCard {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.deliveryCard:hover {
+  transform: translateY(-2px);
+}
+
+.patientInfo {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  color: white;
+}
+
+.patientName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.patientDetails {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.mealSection {
+  padding: 1.5rem;
+}
+
+.mealTime {
+  margin-bottom: 1.5rem;
+}
+
+.mealTime h4 {
+  color: #1e40af;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.mealItems {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+
+.mealItems li {
+  display: inline-block;
+  background-color: #f0f9ff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  color: #0369a1;
+}
+
+.instructions {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.cardFooter {
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.deliverButton {
+  background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.deliverButton:hover {
+  opacity: 0.9;
+}
