@@ -50,6 +50,7 @@ function ManagerDashboard() {
       setLoading(false);
     }
   }
+
   async function fetchStaff() {
     try {
       const response = await fetch(`${BASE_URL}/HFM/pantrystaff`, {
@@ -73,17 +74,16 @@ function ManagerDashboard() {
           method: "DELETE",
           headers: { "Content-type": "application/json" },
         });
-        const data = await response.json();
         if (response.ok) {
+          const data = await response.json();
           toast.success(data?.message);
           fetchPatients();
         } else {
           toast.error("Data Not Deleted");
         }
       } catch (error) {
-        console.error("Error fetching Staff:", error);
-        toast.error("Failed to fetch Satff");
-        setStaffLoading(false);
+        console.error("Error Deleteing Data:", error);
+        toast.error("Failed to Update, Due to server error");
       }
     }
   }
@@ -196,7 +196,8 @@ function ManagerDashboard() {
                       <p>Doctor: {patient.doctorName}</p>
                       <p>Emergency Contact : {patient.emergencyContact}</p>
                       <p>
-                        Last Meal: {patient.lastMealTime || "No meal recorded"}
+                        Last Meal:{" "}
+                        {patient.lastMealTime || "No meal provided yet"}
                       </p>
                       <div className={styles.mealPlans}>
                         <h4>Today's Meals</h4>
