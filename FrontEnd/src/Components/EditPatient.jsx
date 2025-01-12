@@ -35,6 +35,7 @@ function EditPatient() {
   }, [patientId]);
 
   const fetchPatientData = async () => {
+    toast("Fetching Patient Data, Please Wait");
     try {
       const response = await fetch(`${BASE_URL}/HFM/patient/${patientId}`);
       if (!response.ok) {

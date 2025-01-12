@@ -66,6 +66,28 @@ function ManagerDashboard() {
     }
   }
 
+  async function Delete(id) {
+    if (confirm("Want to Delete Patient Data??")) {
+      try {
+        const response = await fetch(`${BASE_URL}/deletepatient/${id}`, {
+          method: "DELETE",
+          headers: { "Content-type": "application/json" },
+        });
+        const data = await response.json();
+        if (response.ok) {
+          toast.success(data?.message);
+          fetchPatients();
+        } else {
+          toast.error("Data Not Deleted");
+        }
+      } catch (error) {
+        console.error("Error fetching Staff:", error);
+        toast.error("Failed to fetch Satff");
+        setStaffLoading(false);
+      }
+    }
+  }
+
   const handleAssignStaff = async (staffMember) => {
     try {
       const patientData = {
@@ -239,7 +261,12 @@ function ManagerDashboard() {
                       >
                         Edit
                       </button>
-                      <button className={styles.eidtsBtn}>Delete</button>
+                      <button
+                        className={styles.eidtsBtn}
+                        onClick={() => Delete(patient._id)}
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 ))}
