@@ -188,6 +188,7 @@ function ManagerDashboard() {
                       </span>
                     </div>
                     <div className={styles.cardBody}>
+                      <p>Age: {patient?.age}</p>
                       <p>
                         Room: {patient.roomNumber} | Bed: {patient.bedNumber} |
                         Floor: {patient.floorNumber}

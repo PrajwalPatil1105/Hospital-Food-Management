@@ -150,7 +150,7 @@ function EditPatient() {
             <div className={styles.formGroup}>
               <label>Age</label>
               <input
-                type="text"
+                type="number"
                 value={patientData.age}
                 onChange={(e) =>
                   setPatientData({
