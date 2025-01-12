@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function AddPantryStaff() {
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
   const [staffData, setStaffData] = useState({
     name: "",
@@ -17,16 +18,13 @@ function AddPantryStaff() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/addpantrystaff",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(staffData),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/addpantrystaff`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(staffData),
+      });
       const data = await response.json();
       if (response.ok) {
         toast.success(data?.message);

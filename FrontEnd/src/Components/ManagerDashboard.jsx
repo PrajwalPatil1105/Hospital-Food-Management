@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function ManagerDashboard() {
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("patients");
   const [patients, setPatients] = useState([]);
@@ -22,16 +23,13 @@ function ManagerDashboard() {
   async function fetchPatients() {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/patients",
-        {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/patients`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       if (data?.code === "3") {
         toast.error("You Are Not Authorized, Please LogIn", {
@@ -52,13 +50,10 @@ function ManagerDashboard() {
   }
   async function fetchStaff() {
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/pantrystaff",
-        {
-          method: "GET",
-          headers: { "Content-type": "application/json" },
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/pantrystaff`, {
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+      });
       const data = await response.json();
       setSatff(data?.staff);
       setStaffLoading(false);
@@ -83,7 +78,7 @@ function ManagerDashboard() {
         status: selectedPatient.lastMealStatus,
       };
       const response = await fetch(
-        `https://hospital-food-management-g4gs.onrender.com/HFM/pantrystaff/assign/${staffMember._id}`,
+        `${BASE_URL}/HFM/pantrystaff/assign/${staffMember._id}`,
         {
           method: "PUT",
           headers: {

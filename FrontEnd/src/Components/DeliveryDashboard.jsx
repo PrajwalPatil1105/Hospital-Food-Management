@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function DeliveryDashboard() {
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [name, setName] = useState("");
@@ -16,16 +17,13 @@ function DeliveryDashboard() {
   const fetchDashboardData = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/Delivery/dashboard",
-        {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/Delivery/dashboard`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       if (data?.code === "3") {
         toast.error("You Are Not Authorized, Please LogIn", {
@@ -48,7 +46,7 @@ function DeliveryDashboard() {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `https://hospital-food-management-g4gs.onrender.com/HFM/patientD/${patientId}/meal-status`,
+        `${BASE_URL}/HFM/patientD/${patientId}/meal-status`,
         {
           method: "PATCH",
           headers: {

@@ -12,6 +12,7 @@ const MEAL_STATUS_OPTIONS = [
 ];
 
 const PantryDashboard = () => {
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [name, setname] = useState("");
@@ -29,16 +30,13 @@ const PantryDashboard = () => {
   const fetchDashboardData = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/pantry/dashboard",
-        {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/pantry/dashboard`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       if (data?.code === "3") {
         toast.error("You Are Not Authorized, Please LogIn", {
@@ -61,7 +59,7 @@ const PantryDashboard = () => {
   const updateMealStatus = async (patientId, newStatus) => {
     try {
       const response = await fetch(
-        `https://hospital-food-management-g4gs.onrender.com/HFM/patient/${patientId}/meal-status`,
+        `${BASE_URL}/HFM/patient/${patientId}/meal-status`,
         {
           method: "PATCH",
           headers: {
@@ -87,7 +85,7 @@ const PantryDashboard = () => {
     try {
       const patientData = tasks[0];
       const response = await fetch(
-        `https://hospital-food-management-g4gs.onrender.com/HFM/Deliverystaff/assign/${staffMember._id}`,
+        `${BASE_URL}/HFM/Deliverystaff/assign/${staffMember._id}`,
         {
           method: "PUT",
           headers: {
@@ -113,13 +111,10 @@ const PantryDashboard = () => {
 
   async function fetchStaff() {
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/Deliverystaff",
-        {
-          method: "GET",
-          headers: { "Content-type": "application/json" },
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/Deliverystaff`, {
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+      });
       const data = await response.json();
       setSatff(data?.staff);
     } catch (error) {

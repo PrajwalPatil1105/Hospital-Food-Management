@@ -4,6 +4,7 @@ import styles from "./DeliveryLogin.module.css";
 import toast, { Toaster } from "react-hot-toast";
 
 function DeliveryLogin() {
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
@@ -11,14 +12,11 @@ function DeliveryLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://hospital-food-management-g4gs.onrender.com/HFM/Deliverylogin",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/HFM/Deliverylogin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
       const data = await response.json();
       if (data?.code === "1") {
         localStorage.setItem("token", data.token);
