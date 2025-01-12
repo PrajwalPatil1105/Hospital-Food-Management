@@ -11,6 +11,7 @@ import DeliveryLogin from "./Components/LoginPages/DeliveryLogin";
 import AddPatient from "./Components/AddPatient";
 import AddPantryStaff from "./Components/AddPantryStaff";
 import AddDeliveryStaff from "./Components/AddDeliveryStaff";
+import EditPatient from "./Components/EditPatient";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/AddPatient" element={<AddPatient />} />
         <Route path="/AddPantryStaff" element={<AddPantryStaff />} />
         <Route path="/AddDeliveryStaff" element={<AddDeliveryStaff />} />
+        <Route path="/EditPatient" element={<EditPatient />} />
       </Routes>
     </Router>
   );

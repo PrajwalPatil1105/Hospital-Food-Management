@@ -168,6 +168,23 @@
   margin-bottom: 0.25rem;
 }
 
+.edit {
+  display: flex;
+  gap: 8px;
+}
+
+.eidtsBtn {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.4rem;
+  color: white;
+  border: none;
+  background-color: #90959b;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 .assignBtn {
   width: 100%;
   padding: 0.5rem;

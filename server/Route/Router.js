@@ -15,7 +15,6 @@ dotenv.config();
 const auth = (role) => {
   return async (req, res, next) => {
     try {
-      console.log("Authorization Header:", req.header("Authorization"));
       const token = req.header("Authorization")?.replace("Bearer ", "");
       if (!token) {
         return res
@@ -296,6 +295,29 @@ router.get("/pantrystaff", async (req, res) => {
   }
 });
 
+router.get("/patient/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const patient = await Patient.findById(id);
+    res.status(200).json({ patient });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Failed to fetch patients", error: error.message });
+  }
+});
+
+router.get("/pantrystaff", async (req, res) => {
+  try {
+    const staff = await PantryStaff.find();
+    res.status(200).json({ staff });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Failed to fetch patients", error: error.message });
+  }
+});
+
 router.get("/Deliverystaff", async (req, res) => {
   try {
     const staff = await DeliveryStaff.find();
@@ -430,5 +452,29 @@ router.patch(
     }
   }
 );
+
+// ---------------------------------------------------------- Patient Data Updation -------------------------------------
+
+router.put("/Updatepatient/:id", async (req, res) => {
+  try {
+    const patientId = req.params.id;
+    const updateData = req.body;
+    const updatedPatient = await Patient.findByIdAndUpdate(
+      patientId,
+      updateData,
+      { new: true }
+    );
+    if (!updatedPatient) {
+      return res.status(404).json({ message: "Patient not found" });
+    }
+    res.status(200).json({
+      message: "Patient updated successfully",
+      patient: updatedPatient,
+    });
+  } catch (error) {
+    console.error("Error updating patient:", error);
+    res.status(500).json({ message: "Error updating patient data" });
+  }
+});
 
 module.exports = router;

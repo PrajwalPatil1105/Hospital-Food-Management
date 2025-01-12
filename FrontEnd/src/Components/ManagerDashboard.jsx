@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import styles from "./ManagerDashboard.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function ManagerDashboard() {
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState("patients");
   const [patients, setPatients] = useState([]);
   const [staff, setSatff] = useState([]);
@@ -223,9 +225,22 @@ function ManagerDashboard() {
                     >
                       {patient.lastMealStatus === "Pending" ||
                       patient.lastMealStatus === "Delivered"
-                        ? "Assign Task"
-                        : "Task Assigned"}
+                        ? "Assign Staff"
+                        : "Staff Assigned"}
                     </button>
+                    <div className={styles.edit}>
+                      <button
+                        onClick={() =>
+                          navigate("/EditPatient", {
+                            state: { id: patient._id },
+                          })
+                        }
+                        className={styles.eidtsBtn}
+                      >
+                        Edit
+                      </button>
+                      <button className={styles.eidtsBtn}>Delete</button>
+                    </div>
                   </div>
                 ))}
               </div>
