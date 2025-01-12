@@ -20,7 +20,6 @@ mongoose
   });
 
 app.use("/HFM", router);
-
 app.listen(4000, (req, res) => {
-  console.log("Listing to 4000");
+  console.log("Started...");
 });
