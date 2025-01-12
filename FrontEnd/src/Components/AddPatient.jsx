@@ -28,13 +28,16 @@ function AddPatient() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/HFM/addPatient", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(patientData),
-      });
+      const response = await fetch(
+        "https://hospital-food-management-g4gs.onrender.com/HFM/addPatient",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(patientData),
+        }
+      );
       const data = await response.json();
 
       if (response.ok) {

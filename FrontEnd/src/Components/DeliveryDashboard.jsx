@@ -17,7 +17,7 @@ function DeliveryDashboard() {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        "http://localhost:4000/HFM/Delivery/dashboard",
+        "https://hospital-food-management-g4gs.onrender.com/HFM/Delivery/dashboard",
         {
           method: "GET",
           headers: {
@@ -48,7 +48,7 @@ function DeliveryDashboard() {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://localhost:4000/HFM/patientD/${patientId}/meal-status`,
+        `https://hospital-food-management-g4gs.onrender.com/HFM/patientD/${patientId}/meal-status`,
         {
           method: "PATCH",
           headers: {

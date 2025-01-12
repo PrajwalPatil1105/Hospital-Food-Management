@@ -30,7 +30,7 @@ const PantryDashboard = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        "http://localhost:4000/HFM/pantry/dashboard",
+        "https://hospital-food-management-g4gs.onrender.com/HFM/pantry/dashboard",
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const PantryDashboard = () => {
   const updateMealStatus = async (patientId, newStatus) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/HFM/patient/${patientId}/meal-status`,
+        `https://hospital-food-management-g4gs.onrender.com/HFM/patient/${patientId}/meal-status`,
         {
           method: "PATCH",
           headers: {
@@ -87,7 +87,7 @@ const PantryDashboard = () => {
     try {
       const patientData = tasks[0];
       const response = await fetch(
-        `http://localhost:4000/HFM/Deliverystaff/assign/${staffMember._id}`,
+        `https://hospital-food-management-g4gs.onrender.com/HFM/Deliverystaff/assign/${staffMember._id}`,
         {
           method: "PUT",
           headers: {
@@ -113,10 +113,13 @@ const PantryDashboard = () => {
 
   async function fetchStaff() {
     try {
-      const response = await fetch("http://localhost:4000/HFM/Deliverystaff", {
-        method: "GET",
-        headers: { "Content-type": "application/json" },
-      });
+      const response = await fetch(
+        "https://hospital-food-management-g4gs.onrender.com/HFM/Deliverystaff",
+        {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        }
+      );
       const data = await response.json();
       setSatff(data?.staff);
     } catch (error) {

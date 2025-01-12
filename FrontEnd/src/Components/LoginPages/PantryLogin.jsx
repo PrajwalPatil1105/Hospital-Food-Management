@@ -11,11 +11,14 @@ function PantryLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/HFM/Pantrylogin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://hospital-food-management-g4gs.onrender.com/HFM/Pantrylogin",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       const data = await response.json();
       if (data?.code === "1") {
         localStorage.setItem("token", data.token);

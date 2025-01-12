@@ -18,7 +18,7 @@ function AddDeliveryStaff() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:4000/HFM/addDeliverystaff",
+        "https://hospital-food-management-g4gs.onrender.com/HFM/addDeliverystaff",
         {
           method: "POST",
           headers: {
