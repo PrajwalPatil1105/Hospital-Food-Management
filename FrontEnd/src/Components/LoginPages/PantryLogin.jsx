@@ -51,6 +51,9 @@ function PantryLogin() {
             <div className={styles.feature}>
               <span>✓</span> Handle food requests
             </div>
+            <div className={styles.feature}>
+              <span>✓</span> Update live food status
+            </div>
           </div>
         </div>
       </div>

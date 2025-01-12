@@ -46,13 +46,13 @@ function ManagerLogin() {
           <p>Access your dashboard to manage operations</p>
           <div className={styles.features}>
             <div className={styles.feature}>
-              <span>✓</span> Monitor team performance
+              <span>✓</span> Monitor live food status
             </div>
             <div className={styles.feature}>
-              <span>✓</span> Track inventory levels
+              <span>✓</span> Track staff's work
             </div>
             <div className={styles.feature}>
-              <span>✓</span> Generate reports
+              <span>✓</span> Generate diet chart for patients
             </div>
           </div>
         </div>

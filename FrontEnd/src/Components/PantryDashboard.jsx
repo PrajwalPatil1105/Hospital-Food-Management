@@ -3,13 +3,7 @@ import styles from "./PantryDashboard.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const MEAL_STATUS_OPTIONS = [
-  "Pending",
-  "Preparing",
-  "Ready",
-  "On The Way",
-  "Cancelled",
-];
+const MEAL_STATUS_OPTIONS = ["Pending", "Preparing", "Ready", "Cancelled"];
 
 const PantryDashboard = () => {
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
