@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ManagerLogin.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import { ClipboardList, Users, BarChart3 } from "lucide-react";
 
 function ManagerLogin() {
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
@@ -34,7 +35,28 @@ function ManagerLogin() {
 
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.imageSection}></div>
+      <div className={styles.imageSection}>
+        <div className={styles.iconContainer}>
+          <ClipboardList size={64} className={styles.icon} />
+          <Users size={48} className={styles.usersIcon} />
+          <BarChart3 size={48} className={styles.chartIcon} />
+        </div>
+        <div className={styles.textContent}>
+          <h1>Welcome Manager!</h1>
+          <p>Access your dashboard to manage operations</p>
+          <div className={styles.features}>
+            <div className={styles.feature}>
+              <span>✓</span> Monitor team performance
+            </div>
+            <div className={styles.feature}>
+              <span>✓</span> Track inventory levels
+            </div>
+            <div className={styles.feature}>
+              <span>✓</span> Generate reports
+            </div>
+          </div>
+        </div>
+      </div>
       <div className={styles.loginCardSection}>
         <div className={styles.loginCard}>
           <h2>Manager Login</h2>

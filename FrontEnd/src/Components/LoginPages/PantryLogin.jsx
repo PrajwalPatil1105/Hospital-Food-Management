@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./PantryLogin.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import { UtensilsCrossed, Apple, ShoppingBasket } from "lucide-react";
 
 function PantryLogin() {
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
@@ -31,9 +32,28 @@ function PantryLogin() {
       toast.error("Login failed. Please try again.");
     }
   };
+
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.imageSection}></div>
+      <div className={styles.imageSection}>
+        <div className={styles.iconContainer}>
+          <UtensilsCrossed size={64} className={styles.icon} />
+          <Apple size={48} className={styles.foodIcon} />
+          <ShoppingBasket size={48} className={styles.basketIcon} />
+        </div>
+        <div className={styles.textContent}>
+          <h1>Welcome to Pantry!</h1>
+          <p>Manage food inventory efficiently</p>
+          <div className={styles.features}>
+            <div className={styles.feature}>
+              <span>✓</span> Track food items
+            </div>
+            <div className={styles.feature}>
+              <span>✓</span> Handle food requests
+            </div>
+          </div>
+        </div>
+      </div>
       <div className={styles.loginCardSection}>
         <div className={styles.loginCard}>
           <h2>Pantry Login</h2>

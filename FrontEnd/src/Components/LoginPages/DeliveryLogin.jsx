@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./DeliveryLogin.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import { Truck, Package, Mail, Lock } from "lucide-react";
 
 function DeliveryLogin() {
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
@@ -34,29 +35,50 @@ function DeliveryLogin() {
 
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.imageSection}></div>
+      <div className={styles.illustrationSection}>
+        <div className={styles.iconContainer}>
+          <Truck className={styles.truckIcon} size={64} />
+          <div className={styles.floatingPackages}>
+            <Package className={styles.package1} size={24} />
+            <Package className={styles.package2} size={32} />
+            <Package className={styles.package3} size={28} />
+          </div>
+        </div>
+        <h1 className={styles.welcomeText}>Delivery Staff Portal</h1>
+        <p className={styles.subText}>
+          Ensuring timely and safe meal delivery to patients
+        </p>
+      </div>
       <div className={styles.loginCardSection}>
         <div className={styles.loginCard}>
-          <h2>Delivery Personal Login</h2>
+          <h2>Delivery Staff Login</h2>
           <form onSubmit={handleSubmit} className={styles.loginForm}>
             <div className={styles.formGroup}>
-              <label htmlFor="employId">Email</label>
+              <label htmlFor="email">
+                <Mail size={18} className={styles.inputIcon} />
+                Email
+              </label>
               <input
                 type="text"
                 id="email"
                 value={email}
                 onChange={(e) => setemail(e.target.value)}
                 required
+                placeholder="Enter your email"
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">
+                <Lock size={18} className={styles.inputIcon} />
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
                 value={password}
                 onChange={(e) => setpassword(e.target.value)}
                 required
+                placeholder="Enter your password"
               />
             </div>
             <button type="submit" className={styles.loginButton}>
