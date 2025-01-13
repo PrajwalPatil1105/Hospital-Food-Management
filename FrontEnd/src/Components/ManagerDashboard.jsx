@@ -183,7 +183,15 @@ function ManagerDashboard() {
                   <div key={patient._id} className={styles.patientCard}>
                     <div className={styles.cardHeader}>
                       <h3>{patient.name}</h3>
-                      <span className={styles.status}>
+                      <span
+                        className={styles.status}
+                        style={{
+                          backgroundColor:
+                            patient.lastMealStatus === "Cancelled"
+                              ? "red"
+                              : "#2ecc71",
+                        }}
+                      >
                         {patient.lastMealStatus || "Pending"}
                       </span>
                     </div>
@@ -228,17 +236,20 @@ function ManagerDashboard() {
                       className={styles.assignBtn}
                       disabled={
                         patient.lastMealStatus !== "Pending" &&
-                        patient.lastMealStatus !== "Delivered"
+                        patient.lastMealStatus !== "Delivered" &&
+                        patient.lastMealStatus !== "Cancelled"
                       }
                       style={{
                         cursor:
                           patient.lastMealStatus === "Pending" ||
-                          patient.lastMealStatus === "Delivered"
+                          patient.lastMealStatus === "Delivered" ||
+                          patient.lastMealStatus === "Cancelled"
                             ? "pointer"
                             : "not-allowed",
                         backgroundColor:
                           patient.lastMealStatus === "Pending" ||
-                          patient.lastMealStatus === "Delivered"
+                          patient.lastMealStatus === "Delivered" ||
+                          patient.lastMealStatus === "Cancelled"
                             ? "#3498db"
                             : "rgb(97, 161, 97)",
                       }}
@@ -248,7 +259,8 @@ function ManagerDashboard() {
                       }}
                     >
                       {patient.lastMealStatus === "Pending" ||
-                      patient.lastMealStatus === "Delivered"
+                      patient.lastMealStatus === "Delivered" ||
+                      patient.lastMealStatus === "Cancelled"
                         ? "Assign Staff"
                         : "Staff Assigned"}
                     </button>

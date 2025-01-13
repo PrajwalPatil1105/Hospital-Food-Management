@@ -5,7 +5,7 @@
 
 .navbar {
   background: rgb(255, 255, 255);
-  padding: 1rem 0rem;
+  padding: 1rem;
   color: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -20,10 +20,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .navTitle {
-  font-size: 1.2rem;
+  font-size: 1.4em;
   font-weight: 700;
 }
 
@@ -31,17 +34,22 @@
   background-color: rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .logout {
-  background-color: #2196f3;
+  background-color: #1788e4;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
   font-size: small;
   cursor: pointer;
-  margin-left: 2em;
+  margin-left: 1em;
   color: white;
 }
+
 .logout:hover {
   background-color: white;
   border: 2px solid #2196f3;
@@ -54,9 +62,9 @@
 }
 
 .content {
-  max-width: 40rem;
-  margin: 4rem auto;
-  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 4.5rem auto 2rem;
+  padding: 1rem;
 }
 
 .loadingContainer {
@@ -66,6 +74,7 @@
   justify-content: center;
   min-height: 60vh;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .spinner {
@@ -88,17 +97,18 @@
 
 .emptyContainer {
   text-align: center;
-  padding: 3rem;
+  padding: 2rem 1rem;
   background: white;
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 2rem auto;
   max-width: 500px;
+  width: 90%;
 }
 
 .emptyContainer h2 {
   color: #1e40af;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   margin-bottom: 1rem;
 }
 
@@ -108,8 +118,9 @@
 
 .deliveryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
   gap: 1.5rem;
+  width: 100%;
 }
 
 .deliveryCard {
@@ -118,6 +129,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   transition: transform 0.2s;
+  width: 100%;
 }
 
 .deliveryCard:hover {
@@ -125,64 +137,68 @@
 }
 
 .patientInfo {
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  padding: 1.25rem;
+  background-color: #2f79f0;
   color: white;
 }
 
 .patientName {
-  font-size: 1.25rem;
+  font-size: 1.4em;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  word-break: break-word;
 }
 
 .patientDetails {
-  font-size: 0.875rem;
+  font-size: 0.9em;
   opacity: 0.9;
 }
 
 .mealSection {
-  padding: 1.5rem;
+  padding: 1.25rem;
 }
 
 .mealTime {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .mealTime h4 {
   color: #1e40af;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .mealItems {
   list-style: none;
   padding: 0;
   margin: 0 0 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }
 
 .mealItems li {
-  display: inline-block;
   background-color: #f0f9ff;
   padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-  color: #0369a1;
+  border-radius: 0.3rem;
+  font-size: 0.9em;
+  color: #0e2b3b;
 }
 
 .instructions {
-  font-size: 0.875rem;
+  font-size: 0.8em;
   color: #64748b;
   font-style: italic;
 }
 
 .cardFooter {
-  padding: 1.5rem;
+  padding: 1.25rem;
   background-color: #f8fafc;
   border-top: 1px solid #e2e8f0;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -191,12 +207,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 0.8em;
   color: #64748b;
 }
 
 .deliverButton {
-  background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+  background-color: #22c55e;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -204,8 +220,35 @@
   border: none;
   cursor: pointer;
   transition: opacity 0.2s;
+  width: fit-content;
 }
 
 .deliverButton:hover {
   opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .navContent {
+    justify-content: center;
+    text-align: center;
+    gap: 0.7rem;
+  }
+
+  .staffInfo {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cardFooter {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contactInfo {
+    align-items: center;
+  }
+
+  .content {
+    margin: 7.5rem auto 2rem;
+  }
 }
