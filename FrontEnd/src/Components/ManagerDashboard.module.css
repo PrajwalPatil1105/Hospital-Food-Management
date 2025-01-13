@@ -397,4 +397,8 @@
   .mealTimes {
     grid-template-columns: 1fr;
   }
+
+  .patientGrid {
+    margin-top: 12em;
+  }
 }
