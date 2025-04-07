@@ -9,4 +9,4 @@ To simplify testing across all user roles, use the following credentials:
 | 🚚 Delivery Staff | hospital_delivery@xyz.com         | Password@2025   |
 
 > ✅ All accounts are pre-configured for role-specific access.  
-> ⚠️ Please avoid using these credentials in production environments.
+
